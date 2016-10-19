@@ -14,7 +14,7 @@ Use `go-static` anywhere you would use `go` for building your projects.
 
 ### Background
 
-Static binaries are nice because you can run them in a container without a linux distro base (i.e. `FROM scratch`) resulting in super small and minimalist images: fast builds and pulls, fewer headaches (hopefully).
+Static binaries are nice because you can run them in a container without a Linux distro base (i.e. `FROM scratch`) resulting in super small and minimalist images: fast builds and pulls, fewer headaches (hopefully). Image size shouldn't generally be a concern in small environments, but it can significantly impact build iteration and deployment time at scale.
 
 Unfortunately `glibc` is difficult or impossible to statically link, making it hard to build static binaries for anything but the most trivial programs. Enter [musl](https://www.musl-libc.org/), a very small `glibc` compatible `libc` implementation for Linux. Because musl is completely self-contained we can easily link statically against it.
 
