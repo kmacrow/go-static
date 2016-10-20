@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
-docker run -v $GOPATH:/work go-static:latest $@
+WORKDIR="/$(basename $(pwd))"
+
+docker run -v $GOPATH:/workspace -v $(pwd):$WORKDIR --workdir=$WORKDIR --name go_static go-static:latest $@
+docker rm go_static 2>&1 >/dev/null

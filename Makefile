@@ -1,6 +1,6 @@
 
 default:
-	echo "Hello"
+	docker build -t go-static:latest .
 
 install:
-	echo "Install"
+	cp go-static /usr/local/bin/
